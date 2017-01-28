@@ -26,7 +26,7 @@ requirements:
 test:
   imports:
     - dbt
-    - tests
+    - test
 
 about:
   home: https://github.com/analyst-collective/dbt

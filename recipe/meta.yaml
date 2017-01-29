@@ -1,7 +1,7 @@
 {% set org = "analyst-collective" %}
 {% set name = "dbt" %}
-{% set version = "0.5.3" %}
-{% set sha256 = "91b86bd182dcd72ac5f9eeb801846b96408cb981dda451e2e3f95f3f215af9aa" %}
+{% set version = "0.6.2" %}
+{% set sha256 = "2f5242713e85f8c1d6cb8162f004127dfc46d342366b9f014a2834d106984559" %}
 
 package:
   name: {{ name|lower }}
@@ -26,7 +26,7 @@ requirements:
 test:
   imports:
     - dbt
-    - tests
+    - test
 
 about:
   home: https://github.com/analyst-collective/dbt

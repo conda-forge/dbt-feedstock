@@ -1,7 +1,7 @@
 {% set org = "fishtown-analytics" %}
 {% set name = "dbt" %}
-{% set version = "0.7.1" %}
-{% set sha256 = "ae329906f65ddd81e3be42e079cf935534af97b257747f6aa9267d4a9411fbaf" %}
+{% set version = "0.8.0" %}
+{% set sha256 = "615a1699311a5c469f9a3eb3a274c21684ce60ef9caab16f6432b74cfb5c870e" %}
 
 package:
   name: {{ name|lower }}
@@ -29,7 +29,7 @@ test:
     - test
 
 about:
-  home: https://github.com/analyst-collective/dbt
+  home: https://github.com/fishtown-analytics/dbt
   license: Apache-2.0
   license_file: License.md
   summary: 'dbt helps analysts write reliable, modular code using a workflow that closely mirrors software development.'
@@ -40,7 +40,7 @@ about:
     by individuals and teams alike, dbt is an analytics tool for
     perfectionists with deadlines.
   doc_url: http://dbt.readthedocs.io/en/master/
-  dev_url: https://github.com/analyst-collective/dbt
+  dev_url: https://github.com/fishtown-analytics/dbt
 
 extra:
   recipe-maintainers:

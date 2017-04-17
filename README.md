@@ -15,6 +15,18 @@ by individuals and teams alike, dbt is an analytics tool for
 perfectionists with deadlines.
 
 
+Current build status
+====================
+
+Linux: [![Circle CI](https://circleci.com/gh/conda-forge/dbt-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/dbt-feedstock)
+OSX: [![TravisCI](https://travis-ci.org/conda-forge/dbt-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/dbt-feedstock)
+Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/dbt-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/dbt-feedstock/branch/master)
+
+Current release info
+====================
+Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/dbt/badges/version.svg)](https://anaconda.org/conda-forge/dbt)
+Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/dbt/badges/downloads.svg)](https://anaconda.org/conda-forge/dbt)
+
 Installing dbt
 ==============
 
@@ -35,7 +47,6 @@ It is possible to list all of the versions of `dbt` available on your platform w
 ```
 conda search dbt --channel conda-forge
 ```
-
 
 
 About conda-forge
@@ -71,18 +82,6 @@ Terminology
 
 **conda-forge** - the place where the feedstock and smithy live and work to
                   produce the finished article (built conda distributions)
-
-Current build status
-====================
-
-Linux: [![Circle CI](https://circleci.com/gh/conda-forge/dbt-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/dbt-feedstock)
-OSX: [![TravisCI](https://travis-ci.org/conda-forge/dbt-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/dbt-feedstock)
-Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/dbt-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/dbt-feedstock/branch/master)
-
-Current release info
-====================
-Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/dbt/badges/version.svg)](https://anaconda.org/conda-forge/dbt)
-Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/dbt/badges/downloads.svg)](https://anaconda.org/conda-forge/dbt)
 
 
 Updating dbt-feedstock

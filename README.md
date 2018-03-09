@@ -1,7 +1,7 @@
 About dbt
 =========
 
-Home: https://github.com/analyst-collective/dbt
+Home: https://github.com/fishtown-analytics/dbt
 
 Package license: Apache-2.0
 
@@ -70,6 +70,7 @@ To manage the continuous integration and simplify feedstock maintenance
 Using the ``conda-forge.yml`` within this repository, it is possible to re-render all of
 this feedstock's supporting files (e.g. the CI configuration files) with ``conda smithy rerender``.
 
+For more information please check the [conda-forge documentation](https://conda-forge.org/docs/).
 
 Terminology
 ===========

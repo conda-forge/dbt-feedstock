@@ -18,14 +18,16 @@ perfectionists with deadlines.
 Current build status
 ====================
 
-Linux: [![Circle CI](https://circleci.com/gh/conda-forge/dbt-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/dbt-feedstock)
-OSX: [![TravisCI](https://travis-ci.org/conda-forge/dbt-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/dbt-feedstock)
-Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/dbt-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/dbt-feedstock/branch/master)
+[![Linux](https://img.shields.io/circleci/project/github/conda-forge/dbt-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/dbt-feedstock)
+[![OSX](https://img.shields.io/travis/conda-forge/dbt-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/dbt-feedstock)
+[![Windows](https://img.shields.io/appveyor/ci/conda-forge/dbt-feedstock/master.svg?label=Windows)](https://ci.appveyor.com/project/conda-forge/dbt-feedstock/branch/master)
 
 Current release info
 ====================
-Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/dbt/badges/version.svg)](https://anaconda.org/conda-forge/dbt)
-Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/dbt/badges/downloads.svg)](https://anaconda.org/conda-forge/dbt)
+
+| Name | Downloads | Version | Platforms |
+| --- | --- | --- | --- |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-dbt-green.svg)](https://anaconda.org/conda-forge/dbt) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/dbt.svg)](https://anaconda.org/conda-forge/dbt) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/dbt.svg)](https://anaconda.org/conda-forge/dbt) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/dbt.svg)](https://anaconda.org/conda-forge/dbt) |
 
 Installing dbt
 ==============

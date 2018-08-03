@@ -1,7 +1,7 @@
 {% set org = "fishtown-analytics" %}
 {% set name = "dbt" %}
-{% set version = "0.10.1" %}
-{% set sha256 = "2d265191c7945f3595b82a20f2ed47c08275e5b4f58ce1acfdc0cdebdd9b0018" %}
+{% set version = "0.10.2" %}
+{% set sha256 = "ecc8ebcd0887a2b51300d9033b8d04a3b6cf2ab898fcfdc1e0f665cfaff10a5a" %}
 
 package:
   name: {{ name|lower }}
@@ -14,7 +14,7 @@ source:
 
 build:
   noarch: python
-  number: 1
+  number: 0
   script: python -m pip install --no-deps --ignore-installed .
 
 requirements:

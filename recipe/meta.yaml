@@ -1,7 +1,7 @@
 {% set org = "fishtown-analytics" %}
 {% set name = "dbt" %}
-{% set version = "0.11.0" %}
-{% set sha256 = "8ad792f2622b6f3c31879eba7952816f08c1f3e1b6d5e3e5f72743ab0be6b190" %}
+{% set version = "0.12.0" %}
+{% set sha256 = "136eab01b7cebc4a7cd32dc7bf214b513bf8e495d5152c9dfb036d46ca4c63b1" %}
 
 package:
   name: {{ name|lower }}

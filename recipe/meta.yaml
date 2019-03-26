@@ -15,7 +15,7 @@ source:
 build:
   noarch: python
   number: 0
-  script: python -m pip install --ignore-installed .
+  script: python -m pip install --no-deps --ignore-installed . ./core ./plugins/postgres ./plugins/bigquery ./plugins/redshift ./plugins/snowflake
 
 requirements:
   host:

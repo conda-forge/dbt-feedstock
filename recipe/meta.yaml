@@ -41,10 +41,9 @@ about:
     using a workflow that closely mirrors software development. Used
     by individuals and teams alike, dbt is an analytics tool for
     perfectionists with deadlines.
-  doc_url: http://dbt.readthedocs.io/en/master/
+  doc_url: https://docs.getdbt.com/
   dev_url: https://github.com/fishtown-analytics/dbt
 
 extra:
   recipe-maintainers:
     - drewbanin
-    - jthandy

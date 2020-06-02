@@ -1,7 +1,7 @@
 {% set org = "fishtown-analytics" %}
 {% set name = "dbt" %}
-{% set version = "0.14.3" %}
-{% set sha256 = "f0d8fef8570c95f27c22d5ebd82e1ce6e1cb1c7611f39b88f4f2697fc0bf540c" %}
+{% set version = "0.16.0" %}
+{% set sha256 = "96d430aa1c60cfbcd1ad17b0bf47123b5c88cf4f9c6a8f4a639d38a7c85ee30e" %}
 
 package:
   name: {{ name|lower }}
@@ -34,7 +34,7 @@ about:
   home: https://github.com/fishtown-analytics/dbt
   license: Apache-2.0
   license_file: License.md
-  summary: 'dbt helps analysts write reliable, modular code using a workflow that closely mirrors software development.'
+  summary: dbt helps analysts write reliable, modular code using a workflow that closely mirrors software development.
 
   description: |
     dbt (data build tool) helps analysts write reliable, modular code

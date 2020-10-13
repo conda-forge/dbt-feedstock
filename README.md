@@ -5,9 +5,13 @@ Home: https://github.com/fishtown-analytics/dbt
 
 Package license: Apache-2.0
 
-Feedstock license: BSD 3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/dbt-feedstock/blob/master/LICENSE.txt)
 
 Summary: dbt helps analysts write reliable, modular code using a workflow that closely mirrors software development.
+
+Development: https://github.com/fishtown-analytics/dbt
+
+Documentation: http://dbt.readthedocs.io/en/master/
 
 dbt (data build tool) helps analysts write reliable, modular code
 using a workflow that closely mirrors software development. Used

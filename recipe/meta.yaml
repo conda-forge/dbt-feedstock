@@ -1,7 +1,7 @@
 {% set org = "fishtown-analytics" %}
 {% set name = "dbt" %}
-{% set version = "0.16.1" %}
-{% set sha256 = "bcbb1f0f04fe481bc821f8daf26f04c08dcc0647f140a6c31217cfeefee6198f" %}
+{% set version = "0.18.1" %}
+{% set sha256 = "4d472ec6772c56863289063ba77cdc8806b244634c0c4ecbebe58858647b200b" %}
 
 package:
   name: {{ name|lower }}
@@ -15,7 +15,7 @@ source:
 build:
   noarch: python
   number: 0
-  script: python -m pip install --no-deps --ignore-installed . ./core ./plugins/postgres ./plugins/bigquery ./plugins/redshift ./plugins/snowflake
+  script: python -m pip install -r editable_requirements.txt
 
 requirements:
   host:

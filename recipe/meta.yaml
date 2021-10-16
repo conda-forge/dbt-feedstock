@@ -14,16 +14,16 @@ source:
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script: python -m pip install --no-deps --ignore-installed . ./core ./plugins/postgres ./plugins/bigquery ./plugins/redshift ./plugins/snowflake
 
 requirements:
   host:
     - pip
-    - python
+    - python >=3.6
     - setuptools
   run:
-    - python
+    - python >=3.6
 
 test:
   imports:
@@ -48,3 +48,4 @@ extra:
   recipe-maintainers:
     - drewbanin
     - jthandy
+    - thewchan

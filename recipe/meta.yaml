@@ -20,7 +20,7 @@ source:
     sha256: 79c29f0c032741fdfeffb23f9388ebf659c9b82aa70b228886d79e763bdbecf2
     folder: dbt-redshift
   - url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}-bigquery/{{ name }}-bigquery-{{ version }}.tar.gz
-    sha256: 79c29f0c032741fdfeffb23f9388ebf659c9b82aa70b228886d79e763bdbecf2
+    sha256: d17e88d4b3534a5808ffefd1954c69df3ce93e4ac9b87219691ebeb384b349d3
     folder: dbt-bigquery
   - url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}-snowflake/{{ name }}-snowflake-{{ version }}.tar.gz
     sha256: f635463bcfa276ac34d9603f2808daa3c3a44bb1f36209efff9cf35111d0014e

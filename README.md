@@ -127,5 +127,6 @@ Feedstock Maintainers
 
 * [@drewbanin](https://github.com/drewbanin/)
 * [@jthandy](https://github.com/jthandy/)
+* [@maresb](https://github.com/maresb/)
 * [@thewchan](https://github.com/thewchan/)
 

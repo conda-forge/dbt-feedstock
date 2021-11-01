@@ -1,7 +1,7 @@
-About dbt
-=========
+About dbt-core
+==============
 
-Home: https://github.com/fishtown-analytics/dbt
+Home: https://github.com/dbt-labs/dbt-core
 
 Package license: Apache-2.0
 
@@ -9,7 +9,7 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/dbt-feedstock/b
 
 Summary: dbt helps analysts write reliable, modular code using a workflow that closely mirrors software development.
 
-Development: https://github.com/fishtown-analytics/dbt
+Development: https://github.com/dbt-labs/dbt-core
 
 Documentation: http://dbt.readthedocs.io/en/master/
 
@@ -37,28 +37,28 @@ Current release info
 
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-dbt-green.svg)](https://anaconda.org/conda-forge/dbt) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/dbt.svg)](https://anaconda.org/conda-forge/dbt) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/dbt.svg)](https://anaconda.org/conda-forge/dbt) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/dbt.svg)](https://anaconda.org/conda-forge/dbt) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-dbt--core-green.svg)](https://anaconda.org/conda-forge/dbt-core) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/dbt-core.svg)](https://anaconda.org/conda-forge/dbt-core) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/dbt-core.svg)](https://anaconda.org/conda-forge/dbt-core) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/dbt-core.svg)](https://anaconda.org/conda-forge/dbt-core) |
 
-Installing dbt
-==============
+Installing dbt-core
+===================
 
-Installing `dbt` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
+Installing `dbt-core` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
 
 ```
 conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `dbt` can be installed with:
+Once the `conda-forge` channel has been enabled, `dbt-core` can be installed with:
 
 ```
-conda install dbt
+conda install dbt-core
 ```
 
-It is possible to list all of the versions of `dbt` available on your platform with:
+It is possible to list all of the versions of `dbt-core` available on your platform with:
 
 ```
-conda search dbt --channel conda-forge
+conda search dbt-core --channel conda-forge
 ```
 
 
@@ -100,17 +100,17 @@ Terminology
                   produce the finished article (built conda distributions)
 
 
-Updating dbt-feedstock
-======================
+Updating dbt-core-feedstock
+===========================
 
-If you would like to improve the dbt recipe or build a new
+If you would like to improve the dbt-core recipe or build a new
 package version, please fork this repository and submit a PR. Upon submission,
 your changes will be run on the appropriate platforms to give the reviewer an
 opportunity to confirm that the changes result in a successful build. Once
 merged, the recipe will be re-built and uploaded automatically to the
 `conda-forge` channel, whereupon the built conda packages will be available for
 everybody to install and use from the `conda-forge` channel.
-Note that all branches in the conda-forge/dbt-feedstock are
+Note that all branches in the conda-forge/dbt-core-feedstock are
 immediately built and any created packages are uploaded, so PRs should be based
 on branches in forks and branches in the main repository should only be used to
 build distinct package versions.

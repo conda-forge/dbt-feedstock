@@ -1,23 +1,13 @@
 About dbt
 =========
 
-Home: https://github.com/fishtown-analytics/dbt
+Home: https://github.com/dbt-labs/dbt
 
 Package license: Apache-2.0
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/dbt-feedstock/blob/master/LICENSE.txt)
 
-Summary: dbt helps analysts write reliable, modular code using a workflow that closely mirrors software development.
-
-Development: https://github.com/fishtown-analytics/dbt
-
-Documentation: http://dbt.readthedocs.io/en/master/
-
-dbt (data build tool) helps analysts write reliable, modular code
-using a workflow that closely mirrors software development. Used
-by individuals and teams alike, dbt is an analytics tool for
-perfectionists with deadlines.
-
+Summary: With dbt, data analysts and engineers can build analytics the way engineers build applications.
 
 Current build status
 ====================
@@ -38,6 +28,11 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-dbt-green.svg)](https://anaconda.org/conda-forge/dbt) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/dbt.svg)](https://anaconda.org/conda-forge/dbt) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/dbt.svg)](https://anaconda.org/conda-forge/dbt) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/dbt.svg)](https://anaconda.org/conda-forge/dbt) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-dbt--bigquery-green.svg)](https://anaconda.org/conda-forge/dbt-bigquery) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/dbt-bigquery.svg)](https://anaconda.org/conda-forge/dbt-bigquery) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/dbt-bigquery.svg)](https://anaconda.org/conda-forge/dbt-bigquery) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/dbt-bigquery.svg)](https://anaconda.org/conda-forge/dbt-bigquery) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-dbt--core-green.svg)](https://anaconda.org/conda-forge/dbt-core) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/dbt-core.svg)](https://anaconda.org/conda-forge/dbt-core) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/dbt-core.svg)](https://anaconda.org/conda-forge/dbt-core) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/dbt-core.svg)](https://anaconda.org/conda-forge/dbt-core) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-dbt--postgres-green.svg)](https://anaconda.org/conda-forge/dbt-postgres) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/dbt-postgres.svg)](https://anaconda.org/conda-forge/dbt-postgres) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/dbt-postgres.svg)](https://anaconda.org/conda-forge/dbt-postgres) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/dbt-postgres.svg)](https://anaconda.org/conda-forge/dbt-postgres) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-dbt--redshift-green.svg)](https://anaconda.org/conda-forge/dbt-redshift) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/dbt-redshift.svg)](https://anaconda.org/conda-forge/dbt-redshift) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/dbt-redshift.svg)](https://anaconda.org/conda-forge/dbt-redshift) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/dbt-redshift.svg)](https://anaconda.org/conda-forge/dbt-redshift) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-dbt--snowflake-green.svg)](https://anaconda.org/conda-forge/dbt-snowflake) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/dbt-snowflake.svg)](https://anaconda.org/conda-forge/dbt-snowflake) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/dbt-snowflake.svg)](https://anaconda.org/conda-forge/dbt-snowflake) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/dbt-snowflake.svg)](https://anaconda.org/conda-forge/dbt-snowflake) |
 
 Installing dbt
 ==============
@@ -49,10 +44,10 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `dbt` can be installed with:
+Once the `conda-forge` channel has been enabled, `dbt, dbt-bigquery, dbt-core, dbt-postgres, dbt-redshift, dbt-snowflake` can be installed with:
 
 ```
-conda install dbt
+conda install dbt dbt-bigquery dbt-core dbt-postgres dbt-redshift dbt-snowflake
 ```
 
 It is possible to list all of the versions of `dbt` available on your platform with:
@@ -127,5 +122,6 @@ Feedstock Maintainers
 
 * [@drewbanin](https://github.com/drewbanin/)
 * [@jthandy](https://github.com/jthandy/)
+* [@maresb](https://github.com/maresb/)
 * [@thewchan](https://github.com/thewchan/)
 

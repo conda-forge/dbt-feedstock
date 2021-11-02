@@ -1,51 +1,219 @@
-{% set org = "fishtown-analytics" %}
 {% set name = "dbt" %}
 {% set version = "0.21.0" %}
-{% set sha256 = "5a9c00aca61c5252af9ece51c8b56fab835d1c880b88f6af857935d43dea272d" %}
+
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
-  url: https://github.com/{{ org }}/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  - url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+    sha256: 078598ea2bea848db323676c9ee16c4535584d87babdbe91c2a149bb235f401e
+    folder: dbt
+  - url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}-core/{{ name }}-core-{{ version }}.tar.gz
+    sha256: 74626c1e32acfc3f49112b77029dac8dd6902c13dbfee184e74e659fe28ce51b
+    folder: dbt-core
+  - url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}-postgres/{{ name }}-postgres-{{ version }}.tar.gz
+    sha256: 00ccad11fce3e4d43f7e86c39b3e813924153189ed8288e9a721b20b3dc822a8
+    folder: dbt-postgres
+  - url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}-redshift/{{ name }}-redshift-{{ version }}.tar.gz
+    sha256: 79c29f0c032741fdfeffb23f9388ebf659c9b82aa70b228886d79e763bdbecf2
+    folder: dbt-redshift
+  - url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}-bigquery/{{ name }}-bigquery-{{ version }}.tar.gz
+    sha256: d17e88d4b3534a5808ffefd1954c69df3ce93e4ac9b87219691ebeb384b349d3
+    folder: dbt-bigquery
+  - url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}-snowflake/{{ name }}-snowflake-{{ version }}.tar.gz
+    sha256: f635463bcfa276ac34d9603f2808daa3c3a44bb1f36209efff9cf35111d0014e
+    folder: dbt-snowflake
 
 build:
+  number: 2
   noarch: python
-  number: 1
-  script: python -m pip install --no-deps --ignore-installed . ./core ./plugins/postgres ./plugins/bigquery ./plugins/redshift ./plugins/snowflake
 
-requirements:
-  host:
-    - pip
-    - python >=3.6
-    - setuptools
-  run:
-    - python >=3.6
+outputs:
+  - name: dbt
+    build:
+      noarch: python
+      script: python -m pip install --no-deps -vv ./dbt
+    requirements:
+      host:
+        - pip
+        - python >=3.6
+      run:
+        - python >=3.6
+        - {{ pin_subpackage("dbt-bigquery", exact=True) }}
+        - {{ pin_subpackage("dbt-core", exact=True) }}
+        - {{ pin_subpackage("dbt-postgres", exact=True) }}
+        - {{ pin_subpackage("dbt-redshift", exact=True) }}
+        - {{ pin_subpackage("dbt-snowflake", exact=True) }}
 
-test:
-  imports:
-    - dbt
-    - test
+    test:
+      imports:
+        - dbt
+      commands:
+        - pip check
+      requires:
+        - pip
+
+
+  - name: dbt-core
+    build:
+      noarch: python
+      entry_points:
+        - dbt = dbt.main:main
+      script: python -m pip install --no-deps  -vv ./dbt-core
+
+    requirements:
+      host:
+        - pip
+        - python >=3.6
+      run:
+        - python >=3.6
+        # https://github.com/dbt-labs/dbt-core/blob/v0.21.0/core/setup.py
+        - jinja2 ==2.11.3
+        - pyyaml >=3.11
+        - agate >=1.6,<1.6.2
+        - colorama >=0.3.9,<0.4.5
+        - dataclasses >=0.6,<0.9
+        - hologram ==0.0.14
+        - isodate >=0.6,<0.7
+        - json-rpc >=1.12,<2
+        - logbook >=1.5,<1.6
+        - mashumaro ==2.5
+        - minimal-snowplow-tracker ==0.0.2
+        - networkx >=2.3,<3
+        - packaging ~=20.9
+        - sqlparse >=0.2.3,<0.5
+        - dbt-extractor ==0.4.0
+        - typing-extensions >=3.7.4,<3.11
+        - werkzeug >=1,<3
+
+        # According to setup.py, "the following are all to match snowflake-connector-python"
+        # - requests <3.0.0
+        # - idna >=2.5,<4
+        # - cffi >=1.9,<2.0.0
+
+    test:
+      imports:
+        - dbt
+        - dbt.adapters
+      commands:
+        - pip check
+        - dbt --help
+      requires:
+        - pip
+
+
+  - name: dbt-postgres
+    build:
+      noarch: python
+      script: python -m pip install --no-deps -vv ./dbt-postgres
+
+    requirements:
+      host:
+        - pip
+        - python >=3.6
+      run:
+        - {{ pin_subpackage("dbt-core", exact=True) }}
+        - psycopg2-binary ~=2.8
+        - python >=3.6
+
+    test:
+      imports:
+        - dbt
+        - dbt.adapters
+      commands:
+        - pip check
+      requires:
+        - pip
+
+
+  - name: dbt-redshift
+    build:
+      noarch: python
+      script: python -m pip install --no-deps -vv ./dbt-redshift
+
+    requirements:
+      host:
+        - pip
+        - python >=3.6
+      run:
+        - python >=3.6
+        - boto3 >=1.4.4,<2.0.0
+        - {{ pin_subpackage("dbt-core", exact=True) }}
+        - {{ pin_subpackage("dbt-postgres", exact=True) }}
+
+    test:
+      imports:
+        - dbt
+        - dbt.adapters
+      commands:
+        - pip check
+      requires:
+        - pip
+
+  - name: dbt-bigquery
+    build:
+      noarch: python
+      script: python -m pip install --no-deps -vv ./dbt-bigquery
+
+    requirements:
+      host:
+        - pip
+        - python >=3.6
+      run:
+        - python >=3.6
+        - {{ pin_subpackage("dbt-core", exact=True) }}
+        - google-api-core >=1.16.0,<2
+        - google-cloud-bigquery >=1.25.0,<3
+        - google-cloud-core >=1.3.0,<2
+        - googleapis-common-protos >=1.6.0,<2
+        - protobuf >=3.13.0,<4
+        - six >=1.14.0
+
+    test:
+      imports:
+        - dbt
+        - dbt.adapters
+      commands:
+        - pip check
+      requires:
+        - pip
+
+  - name: dbt-snowflake
+    build:
+      noarch: python
+      script: python -m pip install --no-deps -vv ./dbt-snowflake
+
+    requirements:
+      host:
+        - pip
+        - python >=3.6
+      run:
+        - cryptography >=3.2,<4
+        - {{ pin_subpackage("dbt-core", exact=True) }}
+        - python >=3.6
+        - requests <3.0.0
+        - snowflake-connector-python>=2.4.1,<2.6.0
+
+    test:
+      imports:
+        - dbt
+        - dbt.adapters
+      commands:
+        - pip check
+      requires:
+        - pip
 
 about:
-  home: https://github.com/fishtown-analytics/dbt
+  home: https://github.com/dbt-labs/dbt
+  summary: With dbt, data analysts and engineers can build analytics the way engineers build applications.
   license: Apache-2.0
   license_file: License.md
-  summary: dbt helps analysts write reliable, modular code using a workflow that closely mirrors software development.
-
-  description: |
-    dbt (data build tool) helps analysts write reliable, modular code
-    using a workflow that closely mirrors software development. Used
-    by individuals and teams alike, dbt is an analytics tool for
-    perfectionists with deadlines.
-  doc_url: http://dbt.readthedocs.io/en/master/
-  dev_url: https://github.com/fishtown-analytics/dbt
 
 extra:
   recipe-maintainers:
     - drewbanin
     - jthandy
+    - maresb
     - thewchan

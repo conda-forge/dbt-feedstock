@@ -27,7 +27,7 @@ source:
     folder: dbt-snowflake
 
 build:
-  number: 2
+  number: 3
   noarch: python
 
 outputs:
@@ -41,11 +41,11 @@ outputs:
         - python >=3.6
       run:
         - python >=3.6
-        - {{ pin_subpackage("dbt-bigquery", exact=True) }}
+        - {{ pin_subpackage("dbt-bigquery", min_pin='x.x', max_pin='x.x') }}
         - {{ pin_subpackage("dbt-core", exact=True) }}
-        - {{ pin_subpackage("dbt-postgres", exact=True) }}
-        - {{ pin_subpackage("dbt-redshift", exact=True) }}
-        - {{ pin_subpackage("dbt-snowflake", exact=True) }}
+        - {{ pin_subpackage("dbt-postgres", min_pin='x.x', max_pin='x.x') }}
+        - {{ pin_subpackage("dbt-redshift", min_pin='x.x', max_pin='x.x') }}
+        - {{ pin_subpackage("dbt-snowflake", min_pin='x.x', max_pin='x.x') }}
 
     test:
       imports:
@@ -141,7 +141,7 @@ outputs:
         - python >=3.6
         - boto3 >=1.4.4,<2.0.0
         - {{ pin_subpackage("dbt-core", exact=True) }}
-        - {{ pin_subpackage("dbt-postgres", exact=True) }}
+        - {{ pin_subpackage("dbt-postgres", min_pin='x.x', max_pin='x.x') }}
 
     test:
       imports:

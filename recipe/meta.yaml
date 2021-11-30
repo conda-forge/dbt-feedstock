@@ -38,9 +38,9 @@ outputs:
     requirements:
       host:
         - pip
-        - python >=3.7
+        - python >=3.6.3
       run:
-        - python >=3.7
+        - python >=3.6.3
         - {{ pin_subpackage("dbt-core", exact=True) }}
         - {{ pin_subpackage("dbt-bigquery", min_pin='x.x', max_pin='x.x') }}
         - {{ pin_subpackage("dbt-postgres", min_pin='x.x', max_pin='x.x') }}

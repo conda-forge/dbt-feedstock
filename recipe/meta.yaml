@@ -114,9 +114,10 @@ outputs:
         - pip
         - python >=3.7
       run:
+        - python >=3.7
+        # https://github.com/dbt-labs/dbt-core/blob/main/plugins/postgres/setup.py
         - {{ pin_subpackage("dbt-core", exact=True) }}
         - psycopg2-binary ~=2.8
-        - python >=3.7
 
     test:
       imports:
@@ -139,6 +140,7 @@ outputs:
         - python >=3.7
       run:
         - python >=3.7
+        # https://github.com/dbt-labs/dbt-redshift/blob/main/setup.py
         - boto3 >=1.4.4,<2.0.0
         - {{ pin_subpackage("dbt-core", exact=True) }}
         - {{ pin_subpackage("dbt-postgres", min_pin='x.x', max_pin='x.x') }}
@@ -163,13 +165,13 @@ outputs:
         - python >=3.7
       run:
         - python >=3.7
+        # https://github.com/dbt-labs/dbt-bigquery/blob/main/setup.py
         - {{ pin_subpackage("dbt-core", exact=True) }}
-        - google-api-core >=1.16.0,<2
-        - google-cloud-bigquery >=1.25.0,<3
-        - google-cloud-core >=1.3.0,<2
-        - googleapis-common-protos >=1.6.0,<2
         - protobuf >=3.13.0,<4
-        - six >=1.14.0
+        - google-cloud-core >=1.3.0,<2
+        - google-cloud-bigquery >=1.25.0,<3
+        - google-api-core >=1.16.0,<2
+        - googleapis-common-protos >=1.6.0,<2
 
     test:
       imports:
@@ -190,11 +192,12 @@ outputs:
         - pip
         - python >=3.7
       run:
-        - cryptography >=3.2,<4
-        - {{ pin_subpackage("dbt-core", exact=True) }}
         - python >=3.7
+        # https://github.com/dbt-labs/dbt-snowflake/blob/main/setup.py
+        - {{ pin_subpackage("dbt-core", exact=True) }}
+        - snowflake-connector-python>=2.4.1,<2.8.0
         - requests <3.0.0
-        - snowflake-connector-python>=2.4.1,<2.6.0
+        - cryptography >=3.2,<4
 
     test:
       imports:

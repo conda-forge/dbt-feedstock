@@ -66,9 +66,9 @@ outputs:
     requirements:
       host:
         - pip
-        - python >=3.7
+        - python >=3.6.3
       run:
-        - python >=3.7
+        - python >=3.6.3
         # https://github.com/dbt-labs/dbt-core/blob/v0.21.0/core/setup.py
         - jinja2 ==2.11.3
         - pyyaml >=3.11
@@ -112,9 +112,9 @@ outputs:
     requirements:
       host:
         - pip
-        - python >=3.7
+        - python >=3.6.3
       run:
-        - python >=3.7
+        - python >=3.6.3
         # https://github.com/dbt-labs/dbt-core/blob/main/plugins/postgres/setup.py
         - {{ pin_subpackage("dbt-core", exact=True) }}
         - psycopg2-binary ~=2.8
@@ -137,9 +137,9 @@ outputs:
     requirements:
       host:
         - pip
-        - python >=3.7
+        - python >=3.6.3
       run:
-        - python >=3.7
+        - python >=3.6.3
         # https://github.com/dbt-labs/dbt-redshift/blob/main/setup.py
         - boto3 >=1.4.4,<2.0.0
         - {{ pin_subpackage("dbt-core", exact=True) }}
@@ -162,9 +162,9 @@ outputs:
     requirements:
       host:
         - pip
-        - python >=3.7
+        - python >=3.6.3
       run:
-        - python >=3.7
+        - python >=3.6.3
         # https://github.com/dbt-labs/dbt-bigquery/blob/main/setup.py
         - {{ pin_subpackage("dbt-core", exact=True) }}
         - protobuf >=3.13.0,<4
@@ -190,9 +190,9 @@ outputs:
     requirements:
       host:
         - pip
-        - python >=3.7
+        - python >=3.6.3
       run:
-        - python >=3.7
+        - python >=3.6.3
         # https://github.com/dbt-labs/dbt-snowflake/blob/main/setup.py
         - {{ pin_subpackage("dbt-core", exact=True) }}
         - snowflake-connector-python>=2.4.1,<2.8.0

@@ -1,5 +1,5 @@
 {% set name = "dbt" %}
-{% set version = "0.21.0" %}
+{% set version = "0.21.1" %}
 
 
 package:
@@ -8,26 +8,26 @@ package:
 
 source:
   - url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-    sha256: 078598ea2bea848db323676c9ee16c4535584d87babdbe91c2a149bb235f401e
+    sha256: e8854fff3e1197a41016e9ec9b34d246f94dcfa13dd60649e8f6d274897215cd
     folder: dbt
   - url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}-core/{{ name }}-core-{{ version }}.tar.gz
-    sha256: 74626c1e32acfc3f49112b77029dac8dd6902c13dbfee184e74e659fe28ce51b
+    sha256: afa778e4172186153c9575a36c5bf584d6859afc15af8d27aaee7e8c34e01ba8
     folder: dbt-core
   - url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}-postgres/{{ name }}-postgres-{{ version }}.tar.gz
-    sha256: 00ccad11fce3e4d43f7e86c39b3e813924153189ed8288e9a721b20b3dc822a8
+    sha256: 38b338e8a60ed28f7d400e2828b548781031b7414328a34e92cbcbb59860d3e3
     folder: dbt-postgres
   - url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}-redshift/{{ name }}-redshift-{{ version }}.tar.gz
-    sha256: 79c29f0c032741fdfeffb23f9388ebf659c9b82aa70b228886d79e763bdbecf2
+    sha256: e52d50f32e3459186525b7e59a7bbb5593612988de4f7ecd945fed4e01c1695a
     folder: dbt-redshift
   - url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}-bigquery/{{ name }}-bigquery-{{ version }}.tar.gz
-    sha256: d17e88d4b3534a5808ffefd1954c69df3ce93e4ac9b87219691ebeb384b349d3
+    sha256: 8def74aa97e8509b3b6d2955df024a7fae6e47245671e423185cb3d24dcbc7e6
     folder: dbt-bigquery
   - url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}-snowflake/{{ name }}-snowflake-{{ version }}.tar.gz
-    sha256: f635463bcfa276ac34d9603f2808daa3c3a44bb1f36209efff9cf35111d0014e
+    sha256: 0a6384188b351505f2a511217b98395d2dff6877db5f6b96b9ea6a45223a8ef7
     folder: dbt-snowflake
 
 build:
-  number: 2
+  number: 0
   noarch: python
 
 outputs:

@@ -1,5 +1,5 @@
 {% set name = "dbt" %}
-{% set version = "0.21.1" %}
+{% set version = "1.0.0" %}
 
 
 package:
@@ -8,22 +8,22 @@ package:
 
 source:
   - url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-    sha256: e8854fff3e1197a41016e9ec9b34d246f94dcfa13dd60649e8f6d274897215cd
+    sha256: c76857f40e1cc839bfbbc53e87dc3ce1090bc369cc8a5d38846988628a164b5d
     folder: dbt
   - url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}-core/{{ name }}-core-{{ version }}.tar.gz
-    sha256: afa778e4172186153c9575a36c5bf584d6859afc15af8d27aaee7e8c34e01ba8
+    sha256: 90bde01d078b1d673dc490b9defff07e7f3b702b920c65feae6fb27e07ce73d2
     folder: dbt-core
   - url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}-postgres/{{ name }}-postgres-{{ version }}.tar.gz
-    sha256: 38b338e8a60ed28f7d400e2828b548781031b7414328a34e92cbcbb59860d3e3
+    sha256: 78eac4ba58b1204071de84db69ac44dc68372b680da39879428261338f122992
     folder: dbt-postgres
   - url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}-redshift/{{ name }}-redshift-{{ version }}.tar.gz
-    sha256: e52d50f32e3459186525b7e59a7bbb5593612988de4f7ecd945fed4e01c1695a
+    sha256: 6419212b1c540358f2b9b32408fce6beac9387c40f810d98df7804395e9273bf
     folder: dbt-redshift
   - url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}-bigquery/{{ name }}-bigquery-{{ version }}.tar.gz
-    sha256: 8def74aa97e8509b3b6d2955df024a7fae6e47245671e423185cb3d24dcbc7e6
+    sha256: e22442f00fcec155dcbfe8be351a11c35913fb6edd11bd5e52fafc3218abd12e
     folder: dbt-bigquery
   - url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}-snowflake/{{ name }}-snowflake-{{ version }}.tar.gz
-    sha256: 0a6384188b351505f2a511217b98395d2dff6877db5f6b96b9ea6a45223a8ef7
+    sha256: a263274d6af430edfe33cf57b44c7eba58a73017ec8b1c82cb30b25e42be9a1c
     folder: dbt-snowflake
 
 build:
@@ -34,13 +34,13 @@ outputs:
   - name: dbt
     build:
       noarch: python
-      script: python -m pip install --no-deps -vv ./dbt
+
     requirements:
       host:
         - pip
-        - python >=3.6.3
+        - python >=3.7
       run:
-        - python >=3.6.3
+        - python >=3.7
         - {{ pin_subpackage("dbt-core", exact=True) }}
         - {{ pin_subpackage("dbt-bigquery", min_pin='x.x', max_pin='x.x') }}
         - {{ pin_subpackage("dbt-postgres", min_pin='x.x', max_pin='x.x') }}
@@ -66,23 +66,22 @@ outputs:
     requirements:
       host:
         - pip
-        - python >=3.6.3
+        - python >=3.7
       run:
-        - python >=3.6.3
-        # https://github.com/dbt-labs/dbt-core/blob/v0.21.0/core/setup.py
+        - python >=3.7
+        # Update the version number in URL before verifying dependencies.
+        # https://github.com/dbt-labs/dbt-core/blob/v1.0.0/core/setup.py
         - jinja2 ==2.11.3
-        - pyyaml >=3.11
-        - agate >=1.6,<1.6.2
+        - agate >=1.6,<1.6.4
+        - click >=8,<9
         - colorama >=0.3.9,<0.4.5
-        - dataclasses >=0.6,<0.9
         - hologram ==0.0.14
         - isodate >=0.6,<0.7
-        - json-rpc >=1.12,<2
         - logbook >=1.5,<1.6
-        - mashumaro ==2.5
+        - mashumaro ==2.9
         - minimal-snowplow-tracker ==0.0.2
         - networkx >=2.3,<3
-        - packaging ~=20.9
+        - packaging >=20.9,<22.0
         - sqlparse >=0.2.3,<0.5
         - dbt-extractor ==0.4.0
         - typing-extensions >=3.7.4,<3.11
@@ -112,10 +111,11 @@ outputs:
     requirements:
       host:
         - pip
-        - python >=3.6.3
+        - python >=3.7
       run:
-        - python >=3.6.3
-        # https://github.com/dbt-labs/dbt-core/blob/main/plugins/postgres/setup.py
+        - python >=3.7
+        # Update the version number in URL before verifying dependencies.
+        # https://github.com/dbt-labs/dbt-core/blob/v1.0.0/plugins/postgres/setup.py
         - {{ pin_subpackage("dbt-core", exact=True) }}
         - psycopg2-binary ~=2.8
 
@@ -137,10 +137,11 @@ outputs:
     requirements:
       host:
         - pip
-        - python >=3.6.3
+        - python >=3.7
       run:
-        - python >=3.6.3
-        # https://github.com/dbt-labs/dbt-redshift/blob/main/setup.py
+        - python >=3.7
+        # Update the version number in URL before verifying dependencies.
+        # https://github.com/dbt-labs/dbt-redshift/blob/v1.0.0/setup.py
         - boto3 >=1.4.4,<2.0.0
         - {{ pin_subpackage("dbt-core", exact=True) }}
         - {{ pin_subpackage("dbt-postgres", min_pin='x.x', max_pin='x.x') }}
@@ -162,17 +163,17 @@ outputs:
     requirements:
       host:
         - pip
-        - python >=3.6.3
+        - python >=3.7
       run:
-        - python >=3.6.3
-        # https://github.com/dbt-labs/dbt-bigquery/blob/main/setup.py
+        - python >=3.7
+        # Update the version number in URL before verifying dependencies.
+        # https://github.com/dbt-labs/dbt-bigquery/blob/v1.0.0/setup.py
         - {{ pin_subpackage("dbt-core", exact=True) }}
         - protobuf >=3.13.0,<4
-        - google-cloud-core >=1.3.0,<2
+        - google-cloud-core >=1.3.0,<3
         - google-cloud-bigquery >=1.25.0,<3
-        - google-api-core >=1.16.0,<1.31.3
+        - google-api-core >=1.16.0,<3
         - googleapis-common-protos >=1.6.0,<2
-        - six >=1.14.0
 
     test:
       imports:
@@ -191,12 +192,15 @@ outputs:
     requirements:
       host:
         - pip
-        - python >=3.6.3
+        - python >=3.7
       run:
-        - python >=3.6.3
-        # https://github.com/dbt-labs/dbt-snowflake/blob/main/setup.py
+        - python >=3.7
+        # Update the version number in URL before verifying dependencies.
+        # https://github.com/dbt-labs/dbt-snowflake/blob/v1.0.0/setup.py
         - {{ pin_subpackage("dbt-core", exact=True) }}
-        - snowflake-connector-python>=2.4.1,<2.6.0
+        - snowflake-connector-python>=2.4.1,<2.8.0
+        # For "secure-local-storage" extras_require https://github.com/snowflakedb/snowflake-connector-python/blob/master/setup.py:
+        - keyring !=16.1.0,<24.0.0
         - requests <3.0.0
         - cryptography >=3.2,<4
 

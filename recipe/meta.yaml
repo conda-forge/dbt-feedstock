@@ -38,9 +38,9 @@ outputs:
     requirements:
       host:
         - pip
-        - python >=3.6.3
+        - python >=3.7
       run:
-        - python >=3.6.3
+        - python >=3.7
         - {{ pin_subpackage("dbt-core", exact=True) }}
         - {{ pin_subpackage("dbt-bigquery", min_pin='x.x', max_pin='x.x') }}
         - {{ pin_subpackage("dbt-postgres", min_pin='x.x', max_pin='x.x') }}
@@ -66,23 +66,22 @@ outputs:
     requirements:
       host:
         - pip
-        - python >=3.6.3
+        - python >=3.7
       run:
-        - python >=3.6.3
-        # https://github.com/dbt-labs/dbt-core/blob/v0.21.0/core/setup.py
+        - python >=3.7
+        # Update the version number in URL before verifying dependencies.
+        # https://github.com/dbt-labs/dbt-core/blob/v1.0.0/core/setup.py
         - jinja2 ==2.11.3
-        - pyyaml >=3.11
-        - agate >=1.6,<1.6.2
+        - agate >=1.6,<1.6.4
+        - click >=8,<9
         - colorama >=0.3.9,<0.4.5
-        - dataclasses >=0.6,<0.9
         - hologram ==0.0.14
         - isodate >=0.6,<0.7
-        - json-rpc >=1.12,<2
         - logbook >=1.5,<1.6
-        - mashumaro ==2.5
+        - mashumaro ==2.9
         - minimal-snowplow-tracker ==0.0.2
         - networkx >=2.3,<3
-        - packaging ~=20.9
+        - packaging >=20.9,<22.0
         - sqlparse >=0.2.3,<0.5
         - dbt-extractor ==0.4.0
         - typing-extensions >=3.7.4,<3.11
@@ -112,10 +111,11 @@ outputs:
     requirements:
       host:
         - pip
-        - python >=3.6.3
+        - python >=3.7
       run:
-        - python >=3.6.3
-        # https://github.com/dbt-labs/dbt-core/blob/main/plugins/postgres/setup.py
+        - python >=3.7
+        # Update the version number in URL before verifying dependencies.
+        # https://github.com/dbt-labs/dbt-core/blob/v1.0.0/plugins/postgres/setup.py
         - {{ pin_subpackage("dbt-core", exact=True) }}
         - psycopg2-binary ~=2.8
 
@@ -137,10 +137,11 @@ outputs:
     requirements:
       host:
         - pip
-        - python >=3.6.3
+        - python >=3.7
       run:
-        - python >=3.6.3
-        # https://github.com/dbt-labs/dbt-redshift/blob/main/setup.py
+        - python >=3.7
+        # Update the version number in URL before verifying dependencies.
+        # https://github.com/dbt-labs/dbt-redshift/blob/v1.0.0/setup.py
         - boto3 >=1.4.4,<2.0.0
         - {{ pin_subpackage("dbt-core", exact=True) }}
         - {{ pin_subpackage("dbt-postgres", min_pin='x.x', max_pin='x.x') }}
@@ -162,17 +163,17 @@ outputs:
     requirements:
       host:
         - pip
-        - python >=3.6.3
+        - python >=3.7
       run:
-        - python >=3.6.3
-        # https://github.com/dbt-labs/dbt-bigquery/blob/main/setup.py
+        - python >=3.7
+        # Update the version number in URL before verifying dependencies.
+        # https://github.com/dbt-labs/dbt-bigquery/blob/v1.0.0/setup.py
         - {{ pin_subpackage("dbt-core", exact=True) }}
         - protobuf >=3.13.0,<4
-        - google-cloud-core >=1.3.0,<2
+        - google-cloud-core >=1.3.0,<3
         - google-cloud-bigquery >=1.25.0,<3
-        - google-api-core >=1.16.0,<1.31.3
+        - google-api-core >=1.16.0,<3
         - googleapis-common-protos >=1.6.0,<2
-        - six >=1.14.0
 
     test:
       imports:
@@ -191,12 +192,15 @@ outputs:
     requirements:
       host:
         - pip
-        - python >=3.6.3
+        - python >=3.7
       run:
-        - python >=3.6.3
-        # https://github.com/dbt-labs/dbt-snowflake/blob/main/setup.py
+        - python >=3.7
+        # Update the version number in URL before verifying dependencies.
+        # https://github.com/dbt-labs/dbt-snowflake/blob/v1.0.0/setup.py
         - {{ pin_subpackage("dbt-core", exact=True) }}
-        - snowflake-connector-python>=2.4.1,<2.6.0
+        - snowflake-connector-python>=2.4.1,<2.8.0
+        # For "secure-local-storage" extras_require https://github.com/snowflakedb/snowflake-connector-python/blob/master/setup.py:
+        - keyring !=16.1.0,<24.0.0
         - requests <3.0.0
         - cryptography >=3.2,<4
 

@@ -34,7 +34,7 @@ outputs:
   - name: dbt
     build:
       noarch: python
-      script: python -m pip install --no-deps -vv ./dbt
+
     requirements:
       host:
         - pip

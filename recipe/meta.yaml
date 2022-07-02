@@ -8,7 +8,7 @@ source:
   - url: https://pypi.io/packages/source/d/dbt-core/dbt-core-{{ version }}.tar.gz
     sha256: 16a0b538eec8f45465756a9264e8cf1655f4ffc8b03fea4aa8005b2351d6dae4
     folder: dbt-core
-  - url: https://pypi.io/packages/source/d/dbt-core-postgres/dbt-core-postgres-{{ version }}.tar.gz
+  - url: https://pypi.io/packages/source/d/dbt-postgres/dbt-postgres-{{ version }}.tar.gz
     sha256: 1648e3411aa83bd6b61af4eac45b09d718d5b243cd0dd046c527ef473572c5ca
     folder: dbt-postgres
 

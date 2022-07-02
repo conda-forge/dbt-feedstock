@@ -73,7 +73,7 @@ outputs:
         - {{ pin_subpackage("dbt-core", exact=True) }}
         # Ref: <https://www.marcelotrevisani.com/grayskull>
         # (Note: delete extra "dbt-core" reference.)
-        - psycopg2-binary >=2.8,==2.*
+        - psycopg2-binary >=2.8,<3  # Changed ==2.* to <3
         - python >=3.7
     test:
       imports:

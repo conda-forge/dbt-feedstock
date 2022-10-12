@@ -32,7 +32,7 @@ outputs:
 
         # Mashumaro is installed as "mashumaro[msgpack]", so the following comes from
         # the "extras_require" section of https://github.com/Fatal1ty/mashumaro/blob/master/setup.py
-        - msgpack >=0.5.6
+        - msgpack-python >=0.5.6
 
         # Generated with Grayskull v1.8.3
         # (Note: delete selector on networkx)

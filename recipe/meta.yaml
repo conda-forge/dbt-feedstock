@@ -1,4 +1,4 @@
-{% set version = "1.4.1" %}
+{% set version = "1.4.3" %}
 
 package:
   name: dbt
@@ -6,10 +6,10 @@ package:
 
 source:
   - url: https://pypi.io/packages/source/d/dbt-core/dbt-core-{{ version }}.tar.gz
-    sha256: ef67fd94260cb6a9d293ef8923fb39965687844d0b6937e5eabd9378d7611cf3
+    sha256: d2230dd2793049ff2666628ce5d3811e5099cf4b8da18eb8f299d7e39f44bd0f
     folder: dbt-core
   - url: https://pypi.io/packages/source/d/dbt-postgres/dbt-postgres-{{ version }}.tar.gz
-    sha256: 12c8531ec30b1115ab4efbe2619557725f9a543a133847ace38ae2e5fe2b2424
+    sha256: 844791c94583db95fa7f9505166fe93c9056e5ed1bb87284c3f1fe0873a4e885
     folder: dbt-postgres
 
 build:
@@ -47,7 +47,7 @@ outputs:
         - mashumaro ==3.3.1
         - minimal-snowplow-tracker ==0.0.2
         - networkx >=2.3,<2.8.1
-        - packaging >=20.9,<22.0
+        - packaging >20.9
         - sqlparse >=0.2.3,<0.5
         - dbt-extractor >=0.4.1,<0.5.dev0
         - typing-extensions >=3.7.4

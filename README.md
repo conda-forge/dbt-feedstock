@@ -1,11 +1,11 @@
-About dbt
-=========
+About dbt-feedstock
+===================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/dbt-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/dbt-labs/dbt
 
 Package license: Apache-2.0
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/dbt-feedstock/blob/main/LICENSE.txt)
 
 Summary: With dbt, data analysts and engineers can build analytics the way engineers build applications.
 

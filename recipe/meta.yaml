@@ -1,4 +1,4 @@
-{% set version = "1.4.6" %}
+{% set version = "1.5.0" %}
 
 package:
   name: dbt
@@ -6,10 +6,10 @@ package:
 
 source:
   - url: https://pypi.io/packages/source/d/dbt-core/dbt-core-{{ version }}.tar.gz
-    sha256: 2cf0388530d6fae724b64447c1e93682cb4fe4cd27d170472c983c19a3395cf9
+    sha256: d6d43b7ff0f12765e7e85559c1a109eaa23a7536b26b3f963d0c19263f69b3c4
     folder: dbt-core
   - url: https://pypi.io/packages/source/d/dbt-postgres/dbt-postgres-{{ version }}.tar.gz
-    sha256: a31853be6c2e3fe03367bc18eaaed8281f1db8fdd9942b6c7678c529500be8b7
+    sha256: 7dfde2141250b726bca6fc0aa6fc4d659e8144a63d6b6b705a8e7eca9f1f182c
     folder: dbt-postgres
 
 build:
@@ -21,7 +21,7 @@ outputs:
     build:
       noarch: python
       entry_points:
-        - dbt = dbt.main:main
+        - dbt = dbt.cli.main:cli
       script: python -m pip install --no-deps  -vv ./dbt-core
     requirements:
       host:
@@ -38,21 +38,21 @@ outputs:
         # (Note: delete selector on networkx)
         - jinja2 ==3.1.2
         - agate >=1.6,<1.7.1
-        - betterproto ==1.2.5
         - click >=7.0,<9
         - colorama >=0.3.9,<0.4.7
         - hologram >=0.0.14,<=0.0.16
         - isodate >=0.6,<0.7
         - logbook >=1.5,<1.6
-        - mashumaro ==3.3.1
+        - mashumaro ==3.6
         - minimal-snowplow-tracker ==0.0.2
-        - networkx >=2.3,<3
+        - networkx >=2.3,<2.8.1
         - packaging >20.9
         - sqlparse >=0.2.3,<0.4.4
-        - dbt-extractor ~=0.4.1
+        - dbt-extractor >=0.4.1,<0.5.dev0
         - typing-extensions >=3.7.4
         - werkzeug >=1,<3
-        - pathspec >=0.9,<0.11
+        - pathspec >=0.9,<0.12
+        - protobuf >=3.18.3
         - pytz >=2015.7
         - requests <3.0.0
         - idna >=2.5,<4

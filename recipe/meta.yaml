@@ -21,7 +21,7 @@ outputs:
     build:
       noarch: python
       entry_points:
-        - dbt = dbt.main:main
+        - dbt = dbt.cli.main:cli
       script: python -m pip install --no-deps  -vv ./dbt-core
     requirements:
       host:

@@ -1,4 +1,4 @@
-{% set version = "1.5.0" %}
+{% set version = "1.5.1" %}
 
 package:
   name: dbt
@@ -6,10 +6,10 @@ package:
 
 source:
   - url: https://pypi.io/packages/source/d/dbt-core/dbt-core-{{ version }}.tar.gz
-    sha256: d6d43b7ff0f12765e7e85559c1a109eaa23a7536b26b3f963d0c19263f69b3c4
+    sha256: d645ebdc1098ad0fad19f0871022d16ce77bec6b00d2b6b078db792c8917b8be
     folder: dbt-core
   - url: https://pypi.io/packages/source/d/dbt-postgres/dbt-postgres-{{ version }}.tar.gz
-    sha256: 7dfde2141250b726bca6fc0aa6fc4d659e8144a63d6b6b705a8e7eca9f1f182c
+    sha256: ac8df92e05fdaaa68ddbb99bec283e969bb8c6088679f22c4e75556ef6c85c14
     folder: dbt-postgres
 
 build:
@@ -52,7 +52,7 @@ outputs:
         - typing-extensions >=3.7.4
         - werkzeug >=1,<3
         - pathspec >=0.9,<0.12
-        - protobuf >=3.18.3
+        - protobuf >=4.0.0
         - pytz >=2015.7
         - requests <3.0.0
         - idna >=2.5,<4

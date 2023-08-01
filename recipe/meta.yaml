@@ -76,9 +76,9 @@ outputs:
     requirements:
       host:
         - pip
-        - python >=3.7
+        - python >=3.8
       run:
-        - python >=3.7
+        - python >=3.8
         - {{ pin_subpackage("dbt-core", exact=True) }}
         # Generated with Grayskull
         - psycopg2-binary >=2.8,<3.dev0

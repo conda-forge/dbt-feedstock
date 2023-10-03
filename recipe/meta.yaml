@@ -1,4 +1,4 @@
-{% set version = "1.6.4" %}
+{% set version = "1.6.5" %}
 
 package:
   name: dbt
@@ -6,10 +6,10 @@ package:
 
 source:
   - url: https://pypi.io/packages/source/d/dbt-core/dbt-core-{{ version }}.tar.gz
-    sha256: 8b00030b79c8ef0067e1962e3025064aa1ff51a18680fb9623a469e26aab4ba6
+    sha256: c820c82cab8f2e98cb688c6ff9440a687181130369af9111d6cf3d0e9460122d
     folder: dbt-core
   - url: https://pypi.io/packages/source/d/dbt-postgres/dbt-postgres-{{ version }}.tar.gz
-    sha256: 04f9fdadae2c27150ced7eb8c345ec5aa94381ad164bb33f3e231177ccc93c3f
+    sha256: 619586513f11e1a3fd503a19add5a4be95c2cda069a1c39bd0ab398a408e2317
     folder: dbt-postgres
 
 build:

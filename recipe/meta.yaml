@@ -1,4 +1,4 @@
-{% set version = "1.6.7" %}
+{% set version = "1.7.2" %}
 
 package:
   name: dbt
@@ -6,10 +6,10 @@ package:
 
 source:
   - url: https://pypi.io/packages/source/d/dbt-core/dbt-core-{{ version }}.tar.gz
-    sha256: 09c76b6b9bde3f8e00d24451a18af5b1c8151abfda9884603ce9d5bafc24c556
+    sha256: ec0a06a5015a830f63ad3fd506473cbf12edafeae89cf2d611a10836788da603
     folder: dbt-core
   - url: https://pypi.io/packages/source/d/dbt-postgres/dbt-postgres-{{ version }}.tar.gz
-    sha256: e6109322084316116d44717e57fb249edad8cf8ee05e83840a986c825cae07a9
+    sha256: 11d3822eec1d62ad70eb7497b41fb86bfd44bcb8d8b449d6dc35f9bd5cfa8982
     folder: dbt-postgres
 
 build:
@@ -37,18 +37,18 @@ outputs:
         # Generated with Grayskull
         - agate >=1.7.0,<1.8.dev0
         - jinja2 >=3.1.2,<3.2.dev0
-        - mashumaro >=3.8.1,<3.9.dev0
+        - mashumaro >=3.9,<4.dev0
         - logbook >=1.5,<1.6
-        - click <9
+        - click >=8.0.2,<9
         - networkx >=2.3,<4
         - colorama >=0.3.9,<0.5
         - pathspec >=0.9,<0.12
         - isodate >=0.6,<0.7
         - sqlparse >=0.2.3,<0.5
-        - dbt-extractor >=0.4.1,<0.5.dev0
-        - hologram >=0.0.16,<0.1.dev0
+        - dbt-extractor >=0.5.0,<0.6.dev0
         - minimal-snowplow-tracker >=0.0.2,<0.1.dev0
-        - dbt-semantic-interfaces >=0.2.0,<0.3.dev0
+        - dbt-semantic-interfaces >=0.4.0,<0.5.dev0
+        - jsonschema >=3.0
         - packaging >20.9
         - protobuf >=4.0.0
         - pytz >=2015.7

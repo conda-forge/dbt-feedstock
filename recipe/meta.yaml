@@ -1,4 +1,4 @@
-{% set version = "1.7.8" %}
+{% set version = "1.7.9" %}
 
 package:
   name: dbt
@@ -6,10 +6,10 @@ package:
 
 source:
   - url: https://pypi.io/packages/source/d/dbt-core/dbt-core-{{ version }}.tar.gz
-    sha256: 20cb170ab1f6d5b9e1d44f07666b12dc4c3427d8bbe3c013d46d5d9ca8318201
+    sha256: 2a4e9a57fb64d9daa722bd7c6251beb7ac926b00615436bc91091fa2911b5588
     folder: dbt-core
   - url: https://pypi.io/packages/source/d/dbt-postgres/dbt-postgres-{{ version }}.tar.gz
-    sha256: fe62fd1bbef037b0d58b39f3a23155cb6ca20ec142374b1d8ea50b1759c384e9
+    sha256: 74b60c83115fc04bc05d78f9a6cbaa3a724badd8f2f525add4edf7f8176f5f3c
     folder: dbt-postgres
 
 build:
@@ -36,7 +36,7 @@ outputs:
 
         # Generated with Grayskull
         - agate >=1.7.0,<1.8.dev0
-        - jinja2 >=3.1.2,<3.2.dev0
+        - jinja2 >=3.1.3,<4
         - mashumaro >=3.9,<4.dev0
         - logbook >=1.5,<1.6
         - click >=8.0.2,<9

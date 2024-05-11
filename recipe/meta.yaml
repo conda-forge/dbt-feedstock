@@ -5,10 +5,10 @@ package:
   version: {{ version }}
 
 source:
-  - url: https://pypi.io/packages/source/d/dbt-core/dbt-core-{{ version }}.tar.gz
+  - url: https://pypi.io/packages/source/d/dbt_core/dbt_core-{{ version }}.tar.gz
     sha256: 13b475810232e9d9d75678245f3315fdffa1bc67eaf81460385d04620bfb53ac
     folder: dbt-core
-  - url: https://pypi.io/packages/source/d/dbt-postgres/dbt-postgres-{{ version }}.tar.gz
+  - url: https://pypi.io/packages/source/d/dbt_postgres/dbt_postgres-{{ version }}.tar.gz
     sha256: 876f6670bacd74972f999ccd5d7b8ee8cf8c65cbc32ebf2dda68a8f727387ed0
     folder: dbt-postgres
 

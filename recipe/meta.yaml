@@ -1,98 +1,65 @@
+{% set name = "dbt-core" %}
 {% set version = "1.8.0" %}
 
 package:
-  name: dbt
+  name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  - url: https://pypi.io/packages/source/d/dbt_core/dbt_core-{{ version }}.tar.gz
-    sha256: 13b475810232e9d9d75678245f3315fdffa1bc67eaf81460385d04620bfb53ac
-    folder: dbt-core
-  - url: https://pypi.io/packages/source/d/dbt_postgres/dbt_postgres-{{ version }}.tar.gz
-    sha256: 876f6670bacd74972f999ccd5d7b8ee8cf8c65cbc32ebf2dda68a8f727387ed0
-    folder: dbt-postgres
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/dbt_core-{{ version }}.tar.gz
+  sha256: 13b475810232e9d9d75678245f3315fdffa1bc67eaf81460385d04620bfb53ac
 
 build:
-  number: 0
+  entry_points:
+    - dbt = dbt.cli.main:cli
   noarch: python
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  number: 1
 
-outputs:
-  - name: dbt-core
-    build:
-      noarch: python
-      entry_points:
-        - dbt = dbt.cli.main:cli
-      script: python -m pip install --no-deps  -vv ./dbt-core
-    requirements:
-      host:
-        - pip
-        - python >=3.8
-      run:
-        - python >=3.8
+requirements:
+  host:
+    - python >=3.8
+    - pip
+  run:
+    # Mashumaro is installed as "mashumaro[msgpack]", so the following comes from
+    # the "extras_require" section of https://github.com/Fatal1ty/mashumaro/blob/master/setup.py
+    - msgpack-python >=0.5.6
 
-        # Mashumaro is installed as "mashumaro[msgpack]", so the following comes from
-        # the "extras_require" section of https://github.com/Fatal1ty/mashumaro/blob/master/setup.py
-        - msgpack-python >=0.5.6
+    # Generated with Grayskull
+    - python >=3.8
+    - agate >=1.7.0,<1.10
+    - jinja2 >=3.1.3,<4
+    - mashumaro >=3.9,<4.0
+    - logbook >=1.5,<1.6
+    - click >=8.0.2,<9.0
+    - networkx >=2.3,<4.0
+    - protobuf >=4.0.0,<5
+    - requests <3.0.0
+    - pathspec >=0.9,<0.13
+    - sqlparse >=0.5.0,<0.6.0
+    - dbt-extractor >=0.5.0,<=0.6
+    - minimal-snowplow-tracker >=0.0.2,<0.1
+    - dbt-semantic-interfaces >=0.5.1,<0.6
+    - dbt-common >=1.0.2,<2.0
+    - dbt-adapters >=0.1.0a2,<2.0
+    - packaging >20.9
+    - pytz >=2015.7
+    - pyyaml >=6.0
+    - daff >=1.3.46
+    - typing-extensions >=4.4
 
-        # Generated with Grayskull
-        - agate >=1.7.0,<1.10
-        - jinja2 >=3.1.3,<4
-        - mashumaro >=3.9,<4.0
-        - logbook >=1.5,<1.6
-        - click >=8.0.2,<9.0
-        - networkx >=2.3,<4.0
-        - protobuf >=4.0.0,<5
-        - requests <3.0.0
-        - pathspec >=0.9,<0.13
-        - sqlparse >=0.5.0,<0.6.0
-        - dbt-extractor >=0.5.0,<=0.6
-        - minimal-snowplow-tracker >=0.0.2,<0.1
-        - dbt-semantic-interfaces >=0.5.1,<0.6
-        - dbt-common >=1.0.2,<2.0
-        - dbt-adapters >=0.1.0a2,<2.0
-        - packaging >20.9
-        - pytz >=2015.7
-        - pyyaml >=6.0
-        - daff >=1.3.46
-        - typing-extensions >=4.4
-    test:
-      imports:
-        - dbt
-        - dbt.adapters
-      commands:
-        - pip check
-        - dbt --help
-      requires:
-        - pip
-
-
-  - name: dbt-postgres
-    build:
-      noarch: python
-      script: python -m pip install --no-deps -vv ./dbt-postgres
-    requirements:
-      host:
-        - pip
-        - python >=3.8
-      run:
-        - python >=3.8
-        # Generated with Grayskull
-        - psycopg2-binary >=2.9,<3.0
-        - dbt-adapters >=0.1.0,<2.0
-        - dbt-core >=1.8.0
-        - dbt-common >=0.1.0,<2.0
-        - agate >=1.0,<2.0
-    test:
-      imports:
-        - dbt
-        - dbt.adapters
-      commands:
-        - pip check
-      requires:
-        - pip
+test:
+  imports:
+    - dbt
+    - dbt.adapters
+  commands:
+    - pip check
+    - dbt --help
+  requires:
+    - pip
 
 about:
-  home: https://github.com/dbt-labs/dbt
+  home: https://github.com/dbt-labs/dbt-core
   summary: With dbt, data analysts and engineers can build analytics the way engineers build applications.
   license: Apache-2.0
   license_file: License.md

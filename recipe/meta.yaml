@@ -76,7 +76,6 @@ outputs:
         - python >=3.8
       run:
         - python >=3.8
-        - {{ pin_subpackage("dbt-core", exact=True) }}
         # Generated with Grayskull
         - psycopg2-binary >=2.9,<3.0
         - dbt-adapters >=0.1.0,<2.0

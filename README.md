@@ -3,7 +3,7 @@ About dbt-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/dbt-feedstock/blob/main/LICENSE.txt)
 
-Home: https://github.com/dbt-labs/dbt
+Home: https://github.com/dbt-labs/dbt-core
 
 Package license: Apache-2.0
 
@@ -28,7 +28,6 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-dbt--core-green.svg)](https://anaconda.org/conda-forge/dbt-core) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/dbt-core.svg)](https://anaconda.org/conda-forge/dbt-core) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/dbt-core.svg)](https://anaconda.org/conda-forge/dbt-core) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/dbt-core.svg)](https://anaconda.org/conda-forge/dbt-core) |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-dbt--postgres-green.svg)](https://anaconda.org/conda-forge/dbt-postgres) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/dbt-postgres.svg)](https://anaconda.org/conda-forge/dbt-postgres) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/dbt-postgres.svg)](https://anaconda.org/conda-forge/dbt-postgres) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/dbt-postgres.svg)](https://anaconda.org/conda-forge/dbt-postgres) |
 
 Installing dbt
 ==============
@@ -40,16 +39,16 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `dbt-core, dbt-postgres` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `dbt-core` can be installed with `conda`:
 
 ```
-conda install dbt-core dbt-postgres
+conda install dbt-core
 ```
 
 or with `mamba`:
 
 ```
-mamba install dbt-core dbt-postgres
+mamba install dbt-core
 ```
 
 It is possible to list all of the versions of `dbt-core` available on your platform with `conda`:

@@ -1,5 +1,5 @@
 {% set name = "dbt-core" %}
-{% set version = "1.8.2" %}
+{% set version = "1.8.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/dbt_core-{{ version }}.tar.gz
-  sha256: a9da3c8a8a3fe76730757c5795208bdba26e1a4c42536e2c1d339811a624c2bb
+  sha256: e98ea11f0c91f086e9df9ac4d2e6093cf30a94e6fd419541a32374ddd6b92d9e
 
 build:
   entry_points:

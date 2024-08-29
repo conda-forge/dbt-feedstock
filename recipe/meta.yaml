@@ -20,6 +20,7 @@ requirements:
   host:
     - python >=3.8
     - pip
+    - setuptools
   run:
     # Mashumaro is installed as "mashumaro[msgpack]", so the following comes from
     # the "extras_require" section of https://github.com/Fatal1ty/mashumaro/blob/master/setup.py

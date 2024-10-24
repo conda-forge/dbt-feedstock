@@ -18,17 +18,16 @@ build:
 
 requirements:
   host:
-    - python >=3.8
+    - python >=3.9
     - pip
     - setuptools
   run:
     # Mashumaro is installed as "mashumaro[msgpack]", so the following comes from
     # the "extras_require" section of https://github.com/Fatal1ty/mashumaro/blob/master/setup.py
-    - typing_extensions >=4.4
     - msgpack-python >=0.5.6
 
     # Generated with Grayskull
-    - python >=3.8
+    - python >=3.9
     - agate >=1.7.0,<1.10
     - jinja2 >=3.1.3,<4
     - mashumaro >=3.9,<4.0
@@ -48,7 +47,7 @@ requirements:
     - pytz >=2015.7
     - pyyaml >=6.0
     - daff >=1.3.46
-    - typing-extensions >=4.4
+    - typing_extensions >=4.4
 
 test:
   imports:

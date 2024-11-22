@@ -1,13 +1,13 @@
 {% set name = "dbt-core" %}
-{% set version = "1.8.8" %}
+{% set version = "1.8.9" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/dbt_core-{{ version }}.tar.gz
-  sha256: f79c3c076ce218da371c618bfceb0cf78fc894dd962bcd805bbf04b7e29283c6
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/dbt_core-{{ version }}.tar.gz
+  sha256: 763a69b0fa4551ceff7a98b88b4f7af05eff0db959086373369b30b342bb5b26
 
 build:
   entry_points:
@@ -18,7 +18,7 @@ build:
 
 requirements:
   host:
-    - python >=3.9
+    - python {{ python_min }}
     - pip
     - setuptools
   run:
@@ -27,22 +27,22 @@ requirements:
     - msgpack-python >=0.5.6
 
     # Generated with Grayskull
-    - python >=3.9
+    - python >={{ python_min }}
     - agate >=1.7.0,<1.10
     - jinja2 >=3.1.3,<4
     - mashumaro >=3.9,<4.0
     - logbook >=1.5,<1.6
     - click >=8.0.2,<9.0
     - networkx >=2.3,<4.0
-    - protobuf >=4.0.0,<5
+    - protobuf >=5.0,<6.0
     - requests <3.0.0
     - pathspec >=0.9,<0.13
     - sqlparse >=0.5.0,<0.6.0
     - dbt-extractor >=0.5.0,<=0.6
     - minimal-snowplow-tracker >=0.0.2,<0.1
     - dbt-semantic-interfaces >=0.5.1,<0.6
-    - dbt-common >=1.0.4,<1.11.0
-    - dbt-adapters >=1.1.1,<1.7.1
+    - dbt-common >=1.0.4,<2.0
+    - dbt-adapters >=1.1.1,<2.0
     - packaging >20.9
     - pytz >=2015.7
     - pyyaml >=6.0
@@ -57,6 +57,7 @@ test:
     - pip check
     - dbt --help
   requires:
+    - python >={{ python_min }}
     - pip
 
 about:

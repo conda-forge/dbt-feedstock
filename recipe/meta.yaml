@@ -1,5 +1,5 @@
 {% set name = "dbt-core" %}
-{% set version = "1.9.8" %}
+{% set version = "1.10.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/dbt_core-{{ version }}.tar.gz
-  sha256: 19a2022d10d833a4b3c0298cb3a1cd6ce21079639542de5638a1465843d7523b
+  sha256: 5e247c1f10e66c969e06a66634494346b98e277a7280221244a1dd21d7b154d9
 
 build:
   entry_points:
@@ -22,6 +22,8 @@ requirements:
     - pip
     - setuptools
   run:
+    - dbt-protos >=1.0.315,<2.0
+    - pydantic <2
     - python >={{ python_min }}
 
     # Mashumaro is installed as "mashumaro[msgpack]", so the following comes from
@@ -41,9 +43,9 @@ requirements:
     - pathspec >=0.9,<0.13
     - sqlparse >=0.5.0,<0.6.0
     - dbt-extractor >=0.5.0,<=0.6
-    - dbt-semantic-interfaces >=0.7.4,<0.8
-    - dbt-common >=1.13.0,<2.0
-    - dbt-adapters >=1.10.1,<2.0
+    - dbt-semantic-interfaces >=0.8.3,<0.9
+    - dbt-common >=1.22.0,<2.0
+    - dbt-adapters >=1.15.2,<2.0
     - packaging >20.9
     - pytz >=2015.7
     - pyyaml >=6.0

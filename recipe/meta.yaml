@@ -73,6 +73,7 @@ about:
 extra:
   feedstock-name: dbt
   recipe-maintainers:
+    - zaneselvans
     - rxm7706
     - drewbanin
     - jthandy

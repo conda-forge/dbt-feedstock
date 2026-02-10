@@ -1,5 +1,5 @@
 {% set name = "dbt-core" %}
-{% set version = "1.11.2" %}
+{% set version = "1.11.4" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/dbt_core-{{ version }}.tar.gz
-  sha256: 3306fee149b9f4e648071f2c9a46c0551100e1c829f13ad7ce026eb7226ad454
+  sha256: 1eb66ce5ee691b20cf635e906602c6890b90da8f63639ff3b7f371dc240492ce
 
 build:
   entry_points:
@@ -33,7 +33,7 @@ requirements:
     - agate >=1.7.0,<1.10
     - jinja2 >=3.1.3,<4
     - mashumaro >=3.9,<3.15
-    - click >=8.2.0,<9.0
+    - click >=8.3.0,<9.0
     - jsonschema >=4.19.1,<5.0
     - networkx >=2.3,<4.0
     - protobuf >=6.0,<7.0

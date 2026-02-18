@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: dbt-core
-  version: 1.11.5
+  version: 1.11.6
 
 package:
   name: ${{ name|lower }}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/dbt_core-${{ version }}.tar.gz
-  sha256: 7f0c8ee91e0d55e82469a2fbc8f18032856b17d435865cdd1042e59844469a22
+  sha256: a62cde8f20994589a27cba84bcf63aafbf3ecbd44221137e1b1520cee3baeb5c
 
 build:
   number: 0
@@ -27,11 +27,6 @@ requirements:
     - hatchling
   run:
     - python >=${{ python_min }}
-    # Mashumaro is installed as "mashumaro[msgpack]", so the following comes from
-    # the "extras_require" section of https://github.com/Fatal1ty/mashumaro/blob/master/setup.py
-    - msgpack-python >=0.5.6
-    # Use the right tag/version https://github.com/dbt-labs/dbt-core/blob/main/core/setup.py
-    # Generated with Grayskull
     - agate >=1.7.0,<1.10
     - jinja2 >=3.1.3,<4
     - mashumaro >=3.9,<3.15
@@ -54,7 +49,6 @@ requirements:
     - pyyaml >=6.0
     - daff >=1.3.46
     - typing_extensions >=4.4
-
 tests:
   - python:
       imports:

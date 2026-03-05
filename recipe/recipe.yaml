@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: dbt-core
-  version: 1.11.6
+  version: 1.11.7
 
 package:
   name: ${{ name|lower }}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/dbt_core-${{ version }}.tar.gz
-  sha256: a62cde8f20994589a27cba84bcf63aafbf3ecbd44221137e1b1520cee3baeb5c
+  sha256: 3bacae28f4c687280d91671a1694f52a1654e472bebc8313b37870ac3d61e42b
 
 build:
   number: 0
@@ -40,7 +40,7 @@ requirements:
     - sqlparse >=0.5.0,<0.5.5
     - dbt-extractor >=0.5.0,<=0.6
     - dbt-semantic-interfaces >=0.9.0,<0.10
-    - dbt-common >=1.37.2,<2.0
+    - dbt-common >=1.37.3,<2.0
     - dbt-adapters >=1.15.5,<2.0
     - dbt-protos >=1.0.405,<2.0
     - pydantic <3

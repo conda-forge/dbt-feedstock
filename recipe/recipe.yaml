@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: dbt-core
-  version: 1.11.7
+  version: 1.11.8
 
 package:
   name: ${{ name|lower }}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/dbt_core-${{ version }}.tar.gz
-  sha256: 3bacae28f4c687280d91671a1694f52a1654e472bebc8313b37870ac3d61e42b
+  sha256: 1bfe0b40c958785680a1b2b894b0851f5bf780ddc058747dd1e62c389b0d3b1d
 
 build:
   number: 0
@@ -37,7 +37,7 @@ requirements:
     - requests <3.0.0
     - snowplow-tracker >=1.0.2,<2.0
     - pathspec >=0.9,<0.13
-    - sqlparse >=0.5.0,<0.5.5
+    - sqlparse >=0.5.5,<0.6.0
     - dbt-extractor >=0.5.0,<=0.6
     - dbt-semantic-interfaces >=0.9.0,<0.10
     - dbt-common >=1.37.3,<2.0

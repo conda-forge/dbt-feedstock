@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: dbt-core
-  version: "1.11.12"
+  version: "1.12.0"
 
 package:
   name: ${{ name|lower }}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/dbt_core-${{ version }}.tar.gz
-  sha256: 108ced0a65d1f5330e86920df5c7182f79cd6ddcedf8f2d73c7928a310751ae8
+  sha256: f7d6a34f6600a371b8771e813f6b1566ab6d1fb8cea691619c791f527b1f8d7e
 
 build:
   number: 0

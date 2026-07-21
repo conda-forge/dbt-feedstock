@@ -49,8 +49,25 @@ requirements:
     - daff >=1.3.46
     - typing_extensions >=4.4
     - python-dotenv >=1.2
-    - dbt-core-experimental-parser >=2.0.0a4,<3
     - metricflow >=0.211.0,<1.0
+  run_constraints:
+    # dbt-core's pyproject.toml lists dbt-core-experimental-parser as an
+    # unconditional dependency, but it is never imported as a Python module --
+    # dbt-core only shells out to it (dbt/parser/fusion.py) as an external CLI
+    # binary, and only when the user explicitly opts in with --use-v2-parser /
+    # DBT_ENGINE_USE_V2_PARSER (default off). If it's missing, dbt-core raises
+    # a clear, actionable error only on that opt-in path; everything else
+    # (import dbt, parse, run, etc.) works normally without it.
+    #
+    # It's also not yet packaged for conda-forge: it's a Rust binary whose
+    # upstream sdist doesn't build from source (see
+    # https://github.com/conda-forge/staged-recipes/pull/34267 for the
+    # in-progress, contested wheel-repackaging attempt). Rather than block
+    # dbt-core 1.12.0 entirely on that being resolved, constrain the version
+    # here (for anyone who does install it) without requiring it. Promote
+    # this back to a hard `run` dependency once that package exists on
+    # conda-forge and the packaging story there has matured.
+    - dbt-core-experimental-parser >=2.0.0a4,<3
 tests:
   - python:
       imports:

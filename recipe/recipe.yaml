@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: dbt-core
-  version: "1.11.12"
+  version: 1.12.0
 
 package:
   name: ${{ name|lower }}
@@ -10,7 +10,9 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/dbt_core-${{ version }}.tar.gz
-  sha256: 108ced0a65d1f5330e86920df5c7182f79cd6ddcedf8f2d73c7928a310751ae8
+  sha256: f7d6a34f6600a371b8771e813f6b1566ab6d1fb8cea691619c791f527b1f8d7e
+  patches:
+    - 0001-drop-experimental-parser-hard-dep.patch
 
 build:
   number: 0
@@ -27,28 +29,47 @@ requirements:
     - hatchling
   run:
     - python >=${{ python_min }}
-    - agate >=1.7.0,<1.10
+    - agate >=1.7.0,<1.15
     - jinja2 >=3.1.3,<4
-    - mashumaro >=3.9,<3.15
+    - mashumaro >=3.9,<3.18
     - click >=8.3.0,<9.0
     - jsonschema >=4.19.1,<5.0
     - networkx >=2.3,<4.0
-    - protobuf >=6.0,<7.0
+    - protobuf >=6.0,<8.0
     - requests <3.0.0
     - snowplow-tracker >=1.0.2,<2.0
-    - pathspec >=0.9,<0.13
+    - pathspec >=0.9,<1.1
     - sqlparse >=0.5.5,<0.6.0
     - dbt-extractor >=0.5.0,<=0.6
-    - dbt-semantic-interfaces >=0.9.0,<0.10
-    - dbt-common >=1.37.3,<2.0
-    - dbt-adapters >=1.15.5,<2.0
-    - dbt-protos >=1.0.405,<2.0
+    - dbt-common >=1.37.5,<2.0
+    - dbt-adapters >=1.24.5,<2.0
+    - dbt-protos >=1.0.514,<2.0
     - pydantic <3
     - packaging >20.9
     - pytz >=2015.7
     - pyyaml >=6.0
     - daff >=1.3.46
     - typing_extensions >=4.4
+    - python-dotenv >=1.2
+    - metricflow >=0.211.0,<1.0
+  run_constraints:
+    # dbt-core's pyproject.toml lists dbt-core-experimental-parser as an
+    # unconditional dependency, but it is never imported as a Python module --
+    # dbt-core only shells out to it (dbt/parser/fusion.py) as an external CLI
+    # binary, and only when the user explicitly opts in with --use-v2-parser /
+    # DBT_ENGINE_USE_V2_PARSER (default off). If it's missing, dbt-core raises
+    # a clear, actionable error only on that opt-in path; everything else
+    # (import dbt, parse, run, etc.) works normally without it.
+    #
+    # It's also not yet packaged for conda-forge: it's a Rust binary whose
+    # upstream sdist doesn't build from source (see
+    # https://github.com/conda-forge/staged-recipes/pull/34267 for the
+    # in-progress, contested wheel-repackaging attempt). Rather than block
+    # dbt-core 1.12.0 entirely on that being resolved, constrain the version
+    # here (for anyone who does install it) without requiring it. Promote
+    # this back to a hard `run` dependency once that package exists on
+    # conda-forge and the packaging story there has matured.
+    - dbt-core-experimental-parser >=2.0.0a4,<3
 tests:
   - python:
       imports:

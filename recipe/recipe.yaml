@@ -52,7 +52,6 @@ requirements:
     - typing_extensions >=4.4
     - python-dotenv >=1.2
     - metricflow >=0.211.0,<1.0
-    - dbt-core-experimental-parser >=2.0.0b1,<3
     - opentelemetry-api >=1.26,<2.0
   run_constraints:
     # dbt-core's pyproject.toml lists dbt-core-experimental-parser as an
@@ -67,11 +66,11 @@ requirements:
     # upstream sdist doesn't build from source (see
     # https://github.com/conda-forge/staged-recipes/pull/34267 for the
     # in-progress, contested wheel-repackaging attempt). Rather than block
-    # dbt-core 1.12.0 entirely on that being resolved, constrain the version
+    # dbt-core 1.12.x entirely on that being resolved, constrain the version
     # here (for anyone who does install it) without requiring it. Promote
     # this back to a hard `run` dependency once that package exists on
     # conda-forge and the packaging story there has matured.
-    - dbt-core-experimental-parser >=2.0.0a4,<3
+    - dbt-core-experimental-parser >=2.0.0b1,<3
 tests:
   - python:
       imports:
@@ -80,7 +79,7 @@ tests:
       pip_check: true
       python_version:
         - ${{ python_min }}.*
-        - '*'
+        - "*"
   - requirements:
       run:
         - python ${{ python_min }}.*

@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: dbt-core
-  version: 1.12.2
+  version: 1.12.3
 
 package:
   name: ${{ name|lower }}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/dbt_core-${{ version }}.tar.gz
-  sha256: 9c4d60c58ed759ceff3cc20c065420abc4d26cb092b0e142b39b8747ee43c79b
+  sha256: d608042c9ff034c0e11d06123a00b79cdf21b12068aac580e90e8326f1872c52
   patches:
     - 0001-drop-experimental-parser-hard-dep.patch
 
@@ -39,7 +39,7 @@ requirements:
     - requests <3.0.0
     - snowplow-tracker >=1.0.2,<2.0
     - pathspec >=0.9,<1.1
-    - sqlparse >=0.5.5,<0.6.0
+    - sqlparse >=0.5.5,<0.7.0
     - dbt-extractor >=0.5.0,<=0.6
     - dbt-common >=1.37.5,<2.0
     - dbt-adapters >=1.24.5,<2.0
@@ -53,6 +53,7 @@ requirements:
     - python-dotenv >=1.2
     - metricflow >=0.211.0,<1.0
     - opentelemetry-api >=1.26,<2.0
+    - dbt-core-experimental-parser >=2.0.0b1,<3
   run_constraints:
     # dbt-core's pyproject.toml lists dbt-core-experimental-parser as an
     # unconditional dependency, but it is never imported as a Python module --
@@ -79,7 +80,7 @@ tests:
       pip_check: true
       python_version:
         - ${{ python_min }}.*
-        - "*"
+        - '*'
   - requirements:
       run:
         - python ${{ python_min }}.*

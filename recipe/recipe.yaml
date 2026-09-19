@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: dbt-core
-  version: 1.12.4
+  version: 1.12.5
 
 package:
   name: ${{ name|lower }}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/dbt_core-${{ version }}.tar.gz
-  sha256: cf869cac339eb9d108181fc5b9bce0a467917e0515b48498e9d49311c82375b8
+  sha256: f17f662aed7b6a8b0d267ecf07448ad1ec03edf147a52abbdf5ee48d25999bb6
   patches:
     - 0001-drop-experimental-parser-hard-dep.patch
 
@@ -51,7 +51,7 @@ requirements:
     - daff >=1.3.46
     - typing_extensions >=4.4
     - python-dotenv >=1.2
-    - metricflow >=0.211.0,<1.0
+    - metricflow >=0.213.0,<1.0
     - opentelemetry-api >=1.26,<2.0
   run_constraints:
     # dbt-core's pyproject.toml lists dbt-core-experimental-parser as an

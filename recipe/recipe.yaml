@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: dbt-core
-  version: 1.12.5
+  version: 1.12.6
 
 package:
   name: ${{ name|lower }}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/dbt_core-${{ version }}.tar.gz
-  sha256: f17f662aed7b6a8b0d267ecf07448ad1ec03edf147a52abbdf5ee48d25999bb6
+  sha256: e4378ecde4740d6b6a5b706ad25162272e28dc20ee8390c42c1ebd637752574f
   patches:
     - 0001-drop-experimental-parser-hard-dep.patch
 
